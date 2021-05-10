@@ -1,7 +1,13 @@
-// Declare Variables
-// spacoing
-const spacing = document.getElementById('spacing');
-const blur = document.getElementById('blur');
-const base = document.getElementById('base');
-//blur
-//base
+const inputs = document.querySelectorAll('.controls input')
+
+let root = document.documentElement;
+
+
+function handleUpdate() {
+  const suffix = this.dataset.sizing || '';
+  console.log(this.name);
+  document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+}
+
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
